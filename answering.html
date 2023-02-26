@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Answering</title>
+
+  <script src="utils.js"></script>
+  <script src="answering.js"></script>
+
+  <style>
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 align="center">WebRTC Peer</h2>
+
+  <div style="display: flex;">
+    <div style="width: 65%; padding: 10px">
+      <div id="chatHistory" style="height: 400px; overflow: auto; border: 1px solid;"></div>
+
+      <div style="text-align: center; padding: 10px;">
+        <input id="chatInput" type="text" placeholder="type here" disabled>
+        <button id="sendMessageButton" onclick="handleSendMessage()" disabled>send</button>
+      </div>
+    </div>
+
+    <div style="width: 35%; padding: 10px">
+      <p align="center" style="margin-bottom: 5px;">Offer</p>
+      <input id="offerData" placeholder="Paste host offer" style="width: 82%" />
+      <button id="generateAnswer" style="padding: 0 9px;" onclick="generateAnswer()">✓</button>
+      
+      <span id="answerWrapper">
+        <p align="center" style="margin-bottom: 5px;">Answer</p>
+        <input id="peerAnswer" readonly placeholder="please wait a few seconds" style="width: 82%" />
+        <button onclick="copyInputText('peerAnswer')">📋</button>
+      </span>
+    </div>
+  </div>
+</body>
+
+<script>
+  document.getElementById('answerWrapper').hidden = true;
+</script>
+
+</html>
